@@ -1,0 +1,53 @@
+.sidebar{
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    left: 0;
+    background-color: brown;
+    padding: 20px;
+}
+
+.logo{
+    text-align: center;
+}
+
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+
+.logo h3{
+    margin-top: 10px;
+    color: white;
+}
+
+.menu{
+    list-style-type: none;
+    color: white;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.menu li{
+    margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.192);
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 6px 40px;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu li i{
+    position: absolute;
+    left: 10px;
+}
+
+.container{
+    width: 80%;
+    position: absolute;
+    right: 0;
+    padding: 30px;
+}
