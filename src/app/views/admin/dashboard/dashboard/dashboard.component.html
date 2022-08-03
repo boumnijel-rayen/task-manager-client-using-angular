@@ -1,1 +1,39 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <p class="title"><span>pages</span> / Dashboard</p>
+  <div class="container">
+      <div class="row chiffres">
+        <div class="col">
+          <div class="ch">
+              <p>Tasks à finir aujourd'hui</p>
+              <h4 class="black">6</h4>
+          </div>
+          <div class="icon">
+              <i class="bi bi-check2-circle"></i>
+          </div>
+        </div>
+        <div class="col">
+          <div class="ch">
+              <p>Tasks Done</p>
+              <h4 class="green">6</h4>
+          </div>
+          <div class="icon">
+              <i class="bi bi-check2-circle"></i>
+          </div>
+        </div>
+        <div class="col">
+          <div class="ch">
+              <p>Tasks en retard</p>
+              <h4 class="red">6</h4>
+          </div>
+          <div class="icon">
+              <i class="bi bi-check2-circle"></i>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="chart">
+    <canvas id="canvas">{{chart}}</canvas>
+  </div>
+
+</div>

@@ -1,14 +1,25 @@
 <div class="sidebar">
     <div class="logo">
-        <img src="/src/assets/img/logo.png" alt="">
+        <img src="assets/img/logo.png" alt="">
         <h3>Task Manager</h3>
     </div>
+    <div class="profile">
+        <img src="assets/img/photo.jpg" alt="">
+        <div class="details">
+            <h3>Admin</h3>
+            <p>Boumnijel-Rayen</p>
+        </div>
+    </div>
     <ul class="menu">
-        <li><i class="bi bi-speedometer2"></i> Dashboard</li>
-        <li><i class="bi bi-people-fill"></i> Users</li>
-        <li><i class="bi bi-list-task"></i> Tasks</li>
-        <li><i class="bi bi-pen-fill"></i> Create Task</li>
+        <li routerLink="/admin/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</li>
+        <li routerLink="/admin/allusers"><i class="bi bi-people-fill"></i> Users</li>
+        <li routerLink="/admin/alltasks"><i class="bi bi-list-task"></i> Tasks</li>
+        <li routerLink="/admin/addtask"><i class="bi bi-window-plus"></i> Create Task</li>
     </ul>
+    <div class="out">
+        <i class="bi bi-door-open-fill"></i>
+        Log out
+    </div>
 </div>
 <div class="container">
     <router-outlet></router-outlet>

@@ -3,7 +3,7 @@
     width: 20%;
     height: 100%;
     left: 0;
-    background-color: brown;
+    background-color: rgb(32, 32, 32);
     padding: 20px;
 }
 
@@ -12,8 +12,8 @@
 }
 
 .logo img{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
 }
 
 .logo h3{
@@ -23,21 +23,26 @@
 
 .menu{
     list-style-type: none;
-    color: white;
-    margin-top: 80px;
+    color: rgb(13, 37, 255);
+    margin-top: 160px;
     padding: 0;
 }
 
 .menu li{
     margin: 10px 0;
-    background-color: rgba(0, 0, 0, 0.192);
+    background-color: rgba(255, 255, 255, 0.979);
     display: block;
     text-align: center;
     width: 100%;
-    padding: 6px 40px;
+    padding: 6px;
     border-radius: 30px;
     position: relative;
     cursor: pointer;
+}
+
+.menu li:hover{
+    background: linear-gradient(120deg,#5a2ff5, #58e6ff);
+    color: white;
 }
 
 .menu li i{
@@ -45,9 +50,58 @@
     left: 10px;
 }
 
+.out{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.781);
+    cursor: pointer;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+}
+
+.profile{
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+    width: 210px;
+    height: 65px;
+    padding: 10px;
+    box-shadow: 1px 1px 8px #dbdbdb9c;
+}
+
+.profile img{
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.profile .details{
+    margin-left: 15px;
+}
+
+.profile .details h3{
+    font-size: 15px;
+    color: #5a2ff5;
+    font-weight: 600;
+}
+
+.profile .details p{
+    font-size: 14px;
+    margin-top: -4px;
+}
+
 .container{
     width: 80%;
     position: absolute;
     right: 0;
-    padding: 30px;
+    background-color: #F8F9FA;
 }
