@@ -1,0 +1,89 @@
+.alltasks{
+    padding: 30px;
+    min-height: 100vh;
+    background-color: #F8F9FA;
+}
+
+.title span{
+    color: darkgray;
+}
+
+.tasks{
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+}
+
+thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+td {
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+}
+
+tbody tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.377);
+}
+
+tbody tr td{
+    border-right: 1px solid rgba(0, 0, 0, 0.377);
+}
+
+tbody tr td:last-child{
+    border-right: none;
+}
+
+tbody tr:last-child{
+    border-bottom: none;
+}
+
+tbody button{
+    margin: 0 5px;
+    color: white;
+}
+
+.desc{
+    font-size: 13px;
+}
+
+.en-cours{
+    padding: 5px;
+    background-color: rgba(255, 140, 0, 0.685);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.fini{
+    padding: 5px;
+    background-color: rgba(0, 161, 22, 0.692);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.retard{
+    padding: 5px;
+    background-color: rgba(255, 0, 0, 0.747);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
