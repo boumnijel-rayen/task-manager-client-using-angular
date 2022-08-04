@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.addtask{
+    padding: 30px;
+    min-height: 100vh;
+    background-color: #F8F9FA;
+}
+
+.title span{
+    color: darkgray;
+}
+
+.container{
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.content form .user-details{
+    margin: 12px 0;
+}
+
+form .user-details .input-box{
+    margin-bottom: 10px;
+}
+
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box input,textarea{
+  height: 38px;
+  width: 80%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box textarea{
+    height: 100px;
+}
+
+.user-details .input-box textarea:focus,
+.user-details .input-box textarea:valid{
+  border-color: #9b59b6;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9b59b6;
+}
+
+form .button{
+   height: 45px;
+   margin: 35px 0;
+}
+
+form .button input{
+   height: 80%;
+   width: 20%;
+   float: right;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+form .button input:hover{
+  transform: scale(0.99); 
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background: #5c6664;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#fff;
+    cursor:pointer;
+    font-size: 0.9em;
+ }
+
+select::-ms-expand {
+    display: none;
+}
+ 
+.select {
+    position: relative;
+    display: flex;
+    width: 14em;
+    height: 2.2em;
+    line-height: 2.2;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #2b2e2e;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+}
+
+.select:hover::after {
+    color: #5a2ff5;
+}
+
+.date input[type="datetime-local"]{
+  background-color: #5a2ff5;
+  padding: 4px 12px;
+  font-family: "Roboto Mono",monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.check{
+    margin-top: 10px;
+}
+
+.check input{
+  margin-left: 10px;
+}
+
+.date{
+  display: flex;
+  justify-content: space-between;
+}
+
+.date span{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+@media(max-width: 584px){
+
+    .container{
+    max-width: 100%;
+    }
+
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .content form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    
+    .user-details::-webkit-scrollbar{
+        width: 5px;
+    }
+  
+}

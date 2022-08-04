@@ -1,1 +1,56 @@
-<p>add-task works!</p>
+<div class="addtask">
+    <p class="title"><span>pages</span> / Add Task</p>
+    <div class="container">
+        <div class="title">Nouveau tâche</div>
+        <div class="content">
+        <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Titre</span>
+                    <input type="text" placeholder="écrivez le titre" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Description</span>
+                    <textarea name="description" id="description" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
+                </div>
+                <div class="input-box">
+                    <div class="select">
+                        <select name="format" id="format">
+                           <option selected disabled>Choisissez l'utilisateur</option>
+                           <option value="usre1">usre1</option>
+                           <option value="usre2">usre2</option>
+                           <option value="usre3">usre3</option>
+                           <option value="usre4">usre4</option>
+                           <option value="usre5">usre5</option>
+                           <option value="usre6">usre6</option>
+                           <option value="usre7">usre7</option>
+                           <option value="usre8">usre8</option>
+                           <option value="usre9">usre9</option>
+                           <option value="usre10">usre10</option>
+                           <option value="usre11">usre11</option>
+                           <option value="usre12">usre12</option>
+                        </select>
+                     </div>
+                </div>
+                <div class="date">
+                    <div class="date1">
+                        <span class="details">Date Debut</span>
+                        <input type="datetime-local" name="dateD">
+                        <div class="check">
+                            <label for="debut">Date actuelle</label>
+                            <input type="checkbox" name="debut" id="debut">
+                        </div>   
+                    </div>
+                    <div class="date1">
+                        <span class="details">Date fin</span>
+                        <input type="datetime-local" name="dateF">
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Enregistrer">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
