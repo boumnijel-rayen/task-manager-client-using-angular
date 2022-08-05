@@ -3,19 +3,22 @@
     <div class="container">
         <div class="title">Nouveau tâche</div>
         <div class="content">
-        <form action="#">
+        <form [formGroup]="Myform" (ngSubmit)="add()">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Titre</span>
-                    <input type="text" placeholder="écrivez le titre" required>
+                    <input type="text" formControlName="titre" placeholder="écrivez le titre" required>
+                    <div class="error" *ngIf="Myform.get('titre').touched && Myform.get('titre').hasError('required')">titre obligatoire</div>
                 </div>
                 <div class="input-box">
                     <span class="details">Description</span>
-                    <textarea name="description" id="description" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
+                    <textarea name="description" formControlName="description" id="description" minlength="10" placeholder="écrivez la description" cols="30" rows="10" required></textarea>
+                    <div class="error" *ngIf="Myform.get('description').touched && Myform.get('description').hasError('required')">description obligatoire</div>
+                    <div class="error" *ngIf="Myform.get('description').touched && Myform.get('description').hasError('minlength')">description doit etre supérieur à 10 caractère</div>
                 </div>
                 <div class="input-box">
-                    <div class="select">
-                        <select name="format" id="format">
+                    <div class="select"> 
+                        <select name="format" id="format" formControlName="username" required >
                            <option selected disabled>Choisissez l'utilisateur</option>
                            <option value="usre1">usre1</option>
                            <option value="usre2">usre2</option>
@@ -31,24 +34,27 @@
                            <option value="usre12">usre12</option>
                         </select>
                      </div>
+                     <div class="error" *ngIf="Myform.get('username').touched && Myform.get('username').value == initialValueUsername">l'utilisateur obligatoire</div>
                 </div>
                 <div class="date">
                     <div class="date1">
                         <span class="details">Date Debut</span>
-                        <input type="datetime-local" name="dateD">
+                        <input type="datetime-local" [hidden]="currentDate" formControlName="dateD" name="dateD">
                         <div class="check">
-                            <label for="debut">Date actuelle</label>
-                            <input type="checkbox" name="debut" id="debut">
+                            <label for="debut" >Date actuelle</label>
+                            <input type="checkbox" (change)="onChange($event)"  name="debut" id="debut">
+                            <div class="error" *ngIf="Myform.get('dateD').touched && (!currentDate && Myform.get('dateD').value == null)">date debut obligatoire</div>
                         </div>   
                     </div>
                     <div class="date1">
                         <span class="details">Date fin</span>
-                        <input type="datetime-local" name="dateF">
+                        <input type="datetime-local" formControlName="dateF" required name="dateF">
+                        <div class="error" *ngIf="Myform.get('dateF').touched && Myform.get('dateF').hasError('required')">date fin obligatoire</div>
                     </div>
                 </div>
             </div>
             <div class="button">
-                <input type="submit" value="Enregistrer">
+                <input type="submit" [disabled]="Myform.invalid" value="Enregistrer">
             </div>
         </form>
         </div>

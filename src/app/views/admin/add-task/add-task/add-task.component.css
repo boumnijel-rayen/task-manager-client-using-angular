@@ -101,6 +101,11 @@ form .button input:hover{
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 
+form .button input:disabled{
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 select {
     -webkit-appearance:none;
     -moz-appearance:none;
@@ -184,6 +189,12 @@ select::-ms-expand {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 @media(max-width: 584px){
