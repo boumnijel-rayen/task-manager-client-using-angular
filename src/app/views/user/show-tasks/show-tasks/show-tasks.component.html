@@ -1,1 +1,125 @@
-<p>show-tasks works!</p>
+<div class="allPage">
+<header>
+    <img class="logo" src="assets/img/logo.png" alt="">
+    <nav>
+        <div class="profile">
+            <img src="assets/img/photo.jpg" alt="">
+            <div class="details">
+                <p class="role">User</p>
+                <p class="username">Rayen-Boumnijel</p>
+            </div>
+        </div>
+        <ul>
+            <li><a href="">Log out</a></li>       
+        </ul>
+    </nav>
+</header>
+
+
+<div class="container c1">
+    <div class="row">
+      <div class="coll-1 coll col-2">
+        <h3><i class="bi bi-sliders2"></i> filtrer</h3>
+        <ul class="all-f">
+            <li class="all">
+                <input (change)="allCheck()" type="checkbox" checked #all name="all" id="all">
+                <label for="all">All</label>
+            </li>
+            <ul class="sub-f">
+                <li>
+                    <input (change)="enCoursCheck()" #cours checked type="checkbox" name="cours" id="cours">
+                    <label for="cours">En cours</label>
+                </li>
+                <li>
+                    <input (change)="retardCheck()" #retard checked type="checkbox" name="retard" id="retard">
+                    <label for="retard">En retard</label>
+                </li>
+                <li>
+                    <input (change)="finiCheck()" #fini checked type="checkbox" name="fini" id="fini">
+                    <label for="fini">Fini</label>
+                </li>
+            </ul>
+        </ul>
+      </div>
+      <div class="coll-2 coll col-9">
+        <div class="container c2">
+            <div class="row">
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
+                </div>
+                <button>Done</button>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="red"></div><p>En retard</p>
+                </div>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="green"></div><p>Fini</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
+                </div>
+                <button>Done</button>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="red"></div><p>En retard</p>
+                </div>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="green"></div><p>Fini</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
+                </div>
+                <button>Done</button>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="red"></div><p>En retard</p>
+                </div>
+              </div>
+              <div class="col">
+                <h4>Titre</h4>
+                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
+                <div class="status">
+                  <div class="green"></div><p>Fini</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+</div>

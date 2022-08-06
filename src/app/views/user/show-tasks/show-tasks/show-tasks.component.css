@@ -1,0 +1,255 @@
+.allPage{
+    width: 100%;
+    max-height: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(3, 3, 51);
+    height: 80px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2rem;
+    padding: 15px;
+    border-radius: 30px;
+    width: 80%;
+}
+
+nav{
+    margin-right: 80px;  
+}
+
+header .logo{
+    width: 50px;
+    height: 50px;
+    margin-left:25px;
+}
+
+nav{
+    display: flex;
+}
+
+nav ul{
+    list-style: none;
+    transform: translateY(32%);
+    display: flex;
+    top: 50%;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    background-color: #5a2ff5;
+    font-size: 14px;
+    padding: 8px 28px;
+    border-radius: 30px;
+    margin: 0 20px;
+}
+
+ul li a:hover{
+    background-color: white;
+    color: red;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    padding: 3px;
+    border-radius: 25px;
+    height: 62px;
+    margin-right: 10px;
+}
+
+.profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px 0 4px;
+}
+
+.profile .details{
+    margin-right: 20px;
+}
+
+.profile .details p{
+    font-size: 14px;
+    transform: translateY(32%);
+}
+
+.profile .username{
+    margin-top: -10px;
+}
+
+.profile .details .role{
+    color: #5a2ff5;
+    font-weight: 800;
+}
+
+.c1{
+    margin-top: 150px;
+    margin-left: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*.c1 .row .coll{
+
+}*/
+
+.c1 .row .coll-1{
+    padding: 20px;
+    background-color: rgb(3, 3, 51);
+    color: white;
+    border-radius: 15px;
+    max-height: 460px;
+}
+
+.c1 .row .coll-2{
+    margin-left: 40px;
+}
+
+
+.coll-1 h3{
+    font-size: 20px;
+    text-align: center;
+}
+
+.coll-1 .all-f{
+    margin-top: 30px;
+}
+
+.coll-1 .all-f .all{
+    list-style: none;
+}
+
+.coll-1 .all-f .all input,.coll-1 .all-f .all label{
+    cursor: pointer;
+    margin: 4px;
+}
+
+.coll-1 .sub-f li{
+    list-style: none;
+    margin-top: 10px;
+    margin-left: -10px;
+}
+
+.coll-1 .sub-f li input{
+    margin-right: 4px;
+}
+
+.coll-1 .sub-f li input,.coll-1 .sub-f li label{
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+  
+label {
+    position: relative;
+}
+  
+label::before {
+    content: "";
+    background: url("/assets/img/check-circle.svg");
+    background-position: center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: -38px;
+    top: -4.5px;
+  
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+}
+  
+input[type="checkbox"]:checked + label::before {
+    transform: scale(1) rotateZ(0deg);
+}
+  
+label::after {
+    content: "";
+    border: 2px solid #27ae60;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: -34px;
+    top: 0px;
+    border-radius: 50%;
+}
+
+.c2{
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+.c2 .row .col{
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 1px 1px 5px #8888889a; 
+}
+
+.c2 .row .col h4{
+    font-size: 25px;
+    margin-left: 20px;
+    color: #5a2ff5;
+}
+
+.c2 .row .col .des{
+    font-size: 13px;
+    color: #000000a1;
+}
+
+.c2 .status p{
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+.c2 .status{
+    display: flex;
+}
+
+.c2 .status .orange{
+    background-color: #ffa500;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.c2 .status .reste{
+    color: green;
+    margin-left: 20px;
+}
+
+.c2 button{
+    background-color: #5a2ff5;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 20px;
+}
+
+.c2 .status .red{
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.c2 .status .green{
+    background-color: green;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}

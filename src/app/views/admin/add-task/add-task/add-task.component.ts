@@ -70,6 +70,10 @@ export class AddTaskComponent implements OnInit {
     
   }
 
+  towDigits(num: number): string {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
   add(){
     const task={
       titre: this.Myform.value.titre,
@@ -80,7 +84,7 @@ export class AddTaskComponent implements OnInit {
     }
     if(this.currentDate){
       let date = new Date();
-      task.dateD = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay()+"T"+date.getHours()+":"+date.getMinutes();
+      task.dateD = date.getFullYear()+"-"+this.towDigits(date.getMonth()+1)+"-"+this.towDigits(date.getDay())+"T"+this.towDigits(date.getHours())+":"+this.towDigits(date.getMinutes());
     }
     console.log(task);
   }
