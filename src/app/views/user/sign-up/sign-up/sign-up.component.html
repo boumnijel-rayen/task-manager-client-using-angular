@@ -1,1 +1,70 @@
-<p>sign-up works!</p>
+<div class="allPage">
+    <div class="back">
+        <i class="bi bi-arrow-left"></i>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-7 coll-1">
+                <div class="title">Sign-Up</div>
+                <form [formGroup]="myForm" (submit)="add()">
+                    <div class="line">
+                        <div>
+                            <div class="input-box">
+                                <input type="text" formControlName="name" class="input" name="name" id="name" required>
+                                <label for="name">Name </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('name').touched && myForm.get('name').hasError('required')">name required</div>
+                        </div>
+                        <div>
+                            <div class="input-box">
+                                <input type="text" formControlName="username" class="input" name="username" id="username" required>
+                                <label for="username">Username </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('username').touched && myForm.get('username').hasError('required')">username required</div>
+                        </div> 
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="input-box">
+                                <input type="text" formControlName="email" class="input" name="email" id="email" required>
+                                <label for="email">Email </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('required')">email required</div>
+                            <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('email')">email invalid</div>
+                        </div>    
+                    </div>
+                    <div class="line">
+                        <div>
+                            <div class="input-box">
+                                <input type="password" formControlName="password" class="input" name="password" id="password" required>
+                                <label for="password">Password </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('password').touched && myForm.get('password').hasError('required')">password required</div>
+                            <div class="error" *ngIf="myForm.get('password').touched && myForm.hasError('passworControlNotValid') && !myForm.get('password').hasError('required')">at least one lowercase char<br>at least one uppercase char<br>at least one number<br>at least one special characters<br>must be &#60;8 and &#62;32 characters in length</div>
+                        </div>
+                        <div>
+                            <div class="input-box">
+                                <input type="password" formControlName="confirmPassword" class="input" name="confirme" id="confirme" required>
+                                <label for="confirme">Confirmation </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('confirmPassword').touched && myForm.hasError('passworConfirmationControlNotValid')">confirmation required</div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div>
+                            <label class="custom-file-upload" #upload>
+                                <input type="file" formControlName="image" (input)="fill()" required id="file" name="file">
+                                <i class="bi bi-cloud-arrow-up-fill"></i> Photo de profile
+                            </label>
+                            <div class="error" *ngIf="myForm.get('image').touched && myForm.get('image').hasError('required')">photo required</div>
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]="myForm.invalid">Sign-Up</button>
+                </form>
+            </div>
+            <div class="col-4 coll-2">
+              <img src="/assets/img/sign-up.jpg" alt="">
+            </div>
+          </div>
+    </div>
+</div>
