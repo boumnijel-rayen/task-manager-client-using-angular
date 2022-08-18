@@ -51,11 +51,28 @@ ul li a{
     padding: 8px 28px;
     border-radius: 30px;
     margin: 0 5px;
+    cursor: pointer;
 }
 
 ul li a:hover{
     background-color: white;
     color: #5a2ff5;
+}
+
+ul li:last-child a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(209, 47, 47);
+    font-size: 14px;
+    padding: 8px 28px;
+    border-radius: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+ul li:last-child a:hover{
+    background-color: white;
+    color: rgb(209, 47, 47);
 }
 
 .banier{

@@ -1,0 +1,40 @@
+<div class="allpage">
+    <div class="back">
+        <i class="bi bi-arrow-left" (click)="back()"></i>
+    </div>
+    <div class="container">
+        <div class="row p-0">
+            <div class="col-3 coll-1">
+                <img src="/assets/img/signInUser.jpg" alt="">
+            </div>
+            <div class="col-6 coll-2">
+                <div class="signIn">
+                    <i class="bi bi-person-circle"></i>
+                    <h3>Sign In</h3>
+                </div>
+                <form [formGroup]="MyForm" (submit)="connect()">
+                    <div class="form-box">
+                        <div class="input-error">
+                            <div class="input-box">
+                                <input type="text" formControlName="username" class="input" name="username" id="username" required>
+                                <label for="username">Username </label>
+                            </div>
+                            <div class="error" *ngIf="MyForm.get('username').touched && MyForm.get('username').hasError('required')">username required</div>
+                        </div>
+                        <div class="input-error">
+                            <div class="input-box">
+                                <input type="password" formControlName="password" class="input" name="password" id="password" required>
+                                <label for="password">Password </label>
+                            </div>
+                            <div class="error" *ngIf="MyForm.get('password').touched && MyForm.get('password').hasError('required')">password required</div>
+                        </div>
+                        <div class="alert alert-danger invalid" *ngIf="invalid" role="alert">
+                            Authentication invalid
+                        </div>
+                        <button type="submit" [disabled]="MyForm.invalid">Connect</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

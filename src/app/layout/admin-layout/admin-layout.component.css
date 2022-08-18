@@ -45,6 +45,11 @@
     color: white;
 }
 
+.menu li:first-child{
+    background: linear-gradient(120deg,#5a2ff5, #58e6ff);
+    color: white;
+}
+
 .menu li i{
     position: absolute;
     left: 10px;

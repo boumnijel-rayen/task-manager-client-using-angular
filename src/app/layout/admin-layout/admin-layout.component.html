@@ -11,10 +11,10 @@
         </div>
     </div>
     <ul class="menu">
-        <li routerLink="/admin/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</li>
-        <li routerLink="/admin/allusers"><i class="bi bi-people-fill"></i> Users</li>
-        <li routerLink="/admin/alltasks"><i class="bi bi-list-task"></i> Tasks</li>
-        <li routerLink="/admin/addtask"><i class="bi bi-window-plus"></i> Create Task</li>
+        <li routerLink="/admin/dashboard"  #dashboard (click)="changeDColor()" class="dashboard"><i class="bi bi-speedometer2"></i> Dashboard</li>
+        <li routerLink="/admin/allusers" #users (click)="changeUColor()"><i class="bi bi-people-fill"></i> Users</li>
+        <li routerLink="/admin/alltasks" #tasks (click)="changeTColor()"><i class="bi bi-list-task"></i> Tasks</li>
+        <li routerLink="/admin/addtask" #ctask (click)="changeCColor()"><i class="bi bi-window-plus"></i> Create Task</li>
     </ul>
     <div class="out">
         <i class="bi bi-door-open-fill"></i>

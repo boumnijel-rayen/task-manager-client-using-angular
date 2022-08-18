@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,7 @@ export class SignUpComponent implements OnInit {
 
   @ViewChild('upload') upload:any;
 
-  constructor(private formBuilder : FormBuilder) {
+  constructor(private formBuilder : FormBuilder, private router:Router) {
     this.myForm = formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
@@ -81,6 +82,10 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  back(){
+    this.router.navigate(['']);
   }
 
   fill(){

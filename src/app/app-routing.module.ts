@@ -6,7 +6,9 @@ import { UserLayoutComponent } from './layout/user-layout/user-layout.component'
 
 const routes: Routes = [
   {path:'',component:HomeLayoutComponent,children:[
-    {path:'',loadChildren:()=>import('./views/home/home-page/home-page.module').then(m=>m.HomePageModule)}
+    {path:'',loadChildren:()=>import('./views/home/home-page/home-page.module').then(m=>m.HomePageModule)},
+    {path:'loginAdmin',loadChildren:()=>import('./views/home/sign-in-admin/sign-in-admin.module').then(m=>m.SignInAdminModule)},
+    {path:'login',loadChildren:()=>import('./views/home/sign-in-user/sign-in-user.module').then(m=>m.SignInUserModule)}
   ]},
   {path:'admin',component:AdminLayoutComponent,children:[
     {path:'addtask',loadChildren:()=>import('./views/admin/add-task/add-task.module').then(m=>m.AddTaskModule)},
