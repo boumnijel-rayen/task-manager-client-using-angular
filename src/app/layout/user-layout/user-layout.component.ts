@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class UserLayoutComponent implements OnInit {
 
   constructor(private router:Router) { 
-    this.router.navigate(['user/showtasks']);
+    if (router.url === '/user') {
+      this.router.navigate(['user/showtasks']);
+    }  
   }
 
   ngOnInit(): void {

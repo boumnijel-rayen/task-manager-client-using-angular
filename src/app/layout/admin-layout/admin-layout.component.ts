@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthadminService } from 'src/app/views/services/authadmin.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -13,8 +14,10 @@ export class AdminLayoutComponent implements OnInit {
   @ViewChild('tasks') tasks:any;
   @ViewChild('ctask') ctask:any;
 
-  constructor(private router:Router) {
-    this.router.navigate(['admin/dashboard']);
+  constructor(private router:Router,private authadminService: AuthadminService){
+    if (router.url === '/admin') {
+      this.router.navigate(['admin/dashboard']);
+    }
   }
 
   ngOnInit(): void {
