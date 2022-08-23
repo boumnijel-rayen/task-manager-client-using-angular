@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthUserService } from 'src/app/views/services/auth-user.service';
 
 @Component({
   selector: 'app-sign-in-user',
@@ -11,8 +12,8 @@ export class SignInUserComponent implements OnInit {
 
   MyForm:any
   invalid:boolean = false;
-
-  constructor(private formBuilder:FormBuilder, private router:Router) {
+  data:any;
+  constructor(private formBuilder:FormBuilder, private router:Router,private authUserService:AuthUserService) {
     this.MyForm = formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -26,6 +27,17 @@ export class SignInUserComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  connect(){}
+  connect(){
+    this.authUserService.signIn(this.MyForm.value.username,this.MyForm.value.password).subscribe(
+      data => {
+        this.data = data;
+        this.invalid = this.authUserService.saveData(this.data.token);
+      },
+      error => {
+        console.log(error)
+        this.invalid = true;
+      }
+    )
+  }
 
 }
