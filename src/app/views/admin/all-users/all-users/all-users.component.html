@@ -7,42 +7,18 @@
                     <th>photo</th>
                     <th>username</th>
                     <th>nom</th>
-                    <th>prenom</th>
                     <th>nb des taches</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="assets/img/photo.jpg" alt=""></td>
-                    <td>rayen-boumnijel</td>
-                    <td>boumnijel</td>
-                    <td>rayen</td>
-                    <td>4</td>
+                <tr *ngFor="let user of users">
+                    <td><img [src]="user.image" alt=""></td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.nbTasks}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Voir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="assets/img/photo.jpg" alt=""></td>
-                    <td>rayen-boumnijel</td>
-                    <td>boumnijel</td>
-                    <td>rayen</td>
-                    <td>4</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-info">Voir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="assets/img/photo.jpg" alt=""></td>
-                    <td>rayen-boumnijel</td>
-                    <td>boumnijel</td>
-                    <td>rayen</td>
-                    <td>4</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" (click)="supprimer(user.id)" class="btn btn-danger">Supprimer</button>
                         <button type="button" class="btn btn-info">Voir</button>
                     </td>
                 </tr>

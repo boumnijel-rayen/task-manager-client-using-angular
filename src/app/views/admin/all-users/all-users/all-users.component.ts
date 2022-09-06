@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminDataService } from 'src/app/views/services/admin-data.service';
 
 @Component({
   selector: 'app-all-users',
@@ -7,9 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllUsersComponent implements OnInit {
 
-  constructor() { }
+  users:any = []
+  token:any = localStorage.getItem('token')
+  data:any
+  constructor(private adminDataService:AdminDataService) {
+    
+  }
 
   ngOnInit(): void {
+    this.adminDataService.getAllUsers(this.token).subscribe(response=>{
+      this.users = response;
+    }).add(()=>{
+
+      this.users.forEach((element:any) => {
+
+        this.adminDataService.getImage(this.token,element.id).subscribe(response=>{
+          let reader = new FileReader();
+          reader.readAsDataURL(response);
+          reader.onload = (e) => {
+            element.image = reader.result;
+          }
+        },error=>{
+          element.image = 'assets/img/user.png'
+        })
+
+        this.adminDataService.getNbTasksPerUser(this.token,element.id).subscribe(response=>{
+          element.nbTasks = response;
+        })
+
+        
+      });
+
+    })
   }
+
+
+  supprimer(id:any){
+    this.adminDataService.deleteUser(this.token,id).subscribe().add(()=>{
+      this.ngOnInit()
+    })
+  }
+
 
 }

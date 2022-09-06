@@ -26,11 +26,16 @@ export class AuthadminService {
     data.subscribe(response => {
       this.dataRes = response;
       localStorage.setItem('id',this.dataRes)
+      if (roles.includes('ROLE_ADMIN')){
+        this.route.navigate(['/admin'])
+      }else{
+        localStorage.removeItem('id')
+      }
     })
     if (roles.includes('ROLE_ADMIN')){
-      this.route.navigate(['/admin'])
       return false
     }else{
+      localStorage.removeItem('token')
       return true
     }
   }

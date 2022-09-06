@@ -29,7 +29,7 @@ export class SignInAdminComponent implements OnInit {
 
 
   connect(){
-    return this.authadminService.signIn(this.MyForm.value.username,this.MyForm.value.password).subscribe(
+    this.authadminService.signIn(this.MyForm.value.username,this.MyForm.value.password).subscribe(
       data => {
         this.data = data;
         this.invalid = this.authadminService.saveData(this.data.token);

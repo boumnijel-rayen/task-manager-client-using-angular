@@ -4,10 +4,10 @@
         <h3>Task Manager</h3>
     </div>
     <div class="profile">
-        <img src="assets/img/photo.jpg" alt="">
+        <img [src]="url" alt="">
         <div class="details">
             <h3>Admin</h3>
-            <p>Boumnijel-Rayen</p>
+            <p>{{username}}</p>
         </div>
     </div>
     <ul class="menu">
@@ -16,7 +16,7 @@
         <li routerLink="/admin/alltasks" #tasks (click)="changeTColor()"><i class="bi bi-list-task"></i> Tasks</li>
         <li routerLink="/admin/addtask" #ctask (click)="changeCColor()"><i class="bi bi-window-plus"></i> Create Task</li>
     </ul>
-    <div class="out">
+    <div class="out" (click)="logout()">
         <i class="bi bi-door-open-fill"></i>
         Log out
     </div>
