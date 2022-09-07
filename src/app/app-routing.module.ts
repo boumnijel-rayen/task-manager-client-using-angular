@@ -19,10 +19,10 @@ const routes: Routes = [
     {path:'alltasks',loadChildren:()=>import('./views/admin/all-tasks/all-tasks.module').then(m=>m.AllTasksModule)},
     {path:'allusers',loadChildren:()=>import('./views/admin/all-users/all-users.module').then(m=>m.AllUsersModule)},
     {path:'dashboard',loadChildren:()=>import('./views/admin/dashboard/dashboard.module').then(m=>m.DashboardModule)},
-    {path:'showuser',loadChildren:()=>import('./views/admin/show-user/show-user.module').then(m=>m.ShowUserModule)}
+    {path:'showuser/:id',loadChildren:()=>import('./views/admin/show-user/show-user.module').then(m=>m.ShowUserModule)}
   ]},
-  {path:'user',component:UserLayoutComponent,canActivate:[GuardUserGuard],children:[
-    {path:'showtasks',loadChildren:()=>import('./views/user/show-tasks/show-tasks.module').then(m=>m.ShowTasksModule)},
+  {path:'user',component:UserLayoutComponent,children:[
+    {path:'showtasks',canActivate:[GuardUserGuard],loadChildren:()=>import('./views/user/show-tasks/show-tasks.module').then(m=>m.ShowTasksModule)},
     {path:'signup',loadChildren:()=>import('./views/user/sign-up/sign-up.module').then(m=>m.SignUpModule)}
   ]}
 ];

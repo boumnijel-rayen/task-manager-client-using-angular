@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/views/services/admin-data.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AllUsersComponent implements OnInit {
   users:any = []
   token:any = localStorage.getItem('token')
   data:any
-  constructor(private adminDataService:AdminDataService) {
+  constructor(private adminDataService:AdminDataService, private route:Router){
     
   }
 
@@ -47,6 +48,10 @@ export class AllUsersComponent implements OnInit {
     this.adminDataService.deleteUser(this.token,id).subscribe().add(()=>{
       this.ngOnInit()
     })
+  }
+
+  userDetails(id:any){
+    this.route.navigate(['/admin/showuser/',id])
   }
 
 
