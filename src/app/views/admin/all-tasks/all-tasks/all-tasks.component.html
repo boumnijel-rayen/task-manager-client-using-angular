@@ -14,35 +14,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>athentification</td>
-                    <td class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint provident ab quas ducimus amet dicta pariatur aperiam? Magnam, corrupti velit!</td>
-                    <td>28/07/2022</td>
-                    <td>04/08/2022 17:00</td>
-                    <td>rayen-boumnijel</td>
-                    <td><p class="en-cours">en cours</p></td>
+                <tr *ngFor="let task of tasks">
+                    <td>{{task.title}}</td>
+                    <td class="desc">{{task.description}}</td>
+                    <td>{{task.start}}</td>
+                    <td>{{task.end}}</td>
+                    <td>{{task.user.username}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <p *ngIf="task.state == 'Done'" class="fini">Fini</p>
+                        <p *ngIf="task.state == 'Late'" class="retard">En Retard</p>
+                        <p *ngIf="task.state == 'In Progress'" class="en-cours">En Cours</p>
                     </td>
-                </tr>
-                <tr>
-                    <td>athentification</td>
-                    <td class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint provident ab quas ducimus amet dicta pariatur aperiam? Magnam, corrupti velit!</td>
-                    <td>28/07/2022</td>
-                    <td>04/08/2022 17:00</td>
-                    <td>rayen-boumnijel</td>
-                    <td><p class="fini">fini</p></td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>athentification</td>
-                    <td class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint provident ab quas ducimus amet dicta pariatur aperiam? Magnam, corrupti velit!</td>
-                    <td>28/07/2022</td>
-                    <td>04/08/2022 17:00</td>
-                    <td>rayen-boumnijel</td>
-                    <td><p class="retard">en retard</p></td>
                     <td>
                         <button type="button" class="btn btn-danger">Supprimer</button>
                     </td>

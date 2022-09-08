@@ -7,7 +7,6 @@ import { mergeMap, Observable } from 'rxjs';
 })
 export class AdminDataService {
 
-  data:any
   constructor(private http:HttpClient) { }
 
 
@@ -58,6 +57,11 @@ export class AdminDataService {
   deleteUser(token:any,id:any){
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.delete('http://localhost:8080/user/'+id,{headers:headers})
+  }
+
+  getAllTasks(token:any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8080/task',{headers:headers})
   }
 
 }
