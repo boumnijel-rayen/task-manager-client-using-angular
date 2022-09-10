@@ -25,14 +25,27 @@ export class AllTasksComponent implements OnInit {
       if (task.done) {
         task.state = "Done"
       }else{
-        if((!task.done) && (task.end > new Date())){
+        const [dateComponents, timeComponents] = task.end.split(' ');
+
+        const [month, day, year] = dateComponents.split('-');
+        const [hours, minutes, seconds] = timeComponents.split(':');
+
+        const dateEnd = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
+
+        if((!task.done) && (dateEnd < new Date())){
           task.state = "Late"
         }else{
-          if((!task.done) && (task.end < new Date())){
+          if((!task.done) && (dateEnd > new Date())){
             task.state = "In Progress"
           }
         }
       }
+    })
+  }
+
+  supprimer(id:any){
+    this.AdminDataService.deleteTask(this.token,id).subscribe().add(()=>{
+      this.ngOnInit()
     })
   }
 

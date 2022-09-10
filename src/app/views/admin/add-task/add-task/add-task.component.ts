@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, CheckboxRequiredValidator, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AdminDataService } from 'src/app/views/services/admin-data.service';
 
 @Component({
   selector: 'app-add-task',
@@ -11,10 +12,16 @@ import { FormsModule } from '@angular/forms';
 export class AddTaskComponent implements OnInit {
 
 
+  @ViewChild('today') today: any;
   Myform: any;
   currentDate :boolean=false;
   initialValueUsername = "Choisissez l'utilisateur";
-  constructor(private formBuilder : FormBuilder) {
+  token = localStorage.getItem('token');
+  id:any
+  users:any
+  task:any
+  success:boolean=false
+  constructor(private formBuilder : FormBuilder,private adminDataService: AdminDataService) {
     this.Myform = formBuilder.group({
       titre: ['', Validators.required],
       description: ['', [Validators.required,Validators.minLength(10)]],
@@ -58,6 +65,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.adminDataService.getAllUsers(this.token).subscribe(response=>{
+      this.users = response;
+    })
   }
 
   onChange($event: any){
@@ -75,18 +85,32 @@ export class AddTaskComponent implements OnInit {
   }
 
   add(){
-    const task={
-      titre: this.Myform.value.titre,
+    let start = new Date(this.Myform.value.dateD);
+    let end = new Date(this.Myform.value.dateF);
+    
+    let task={
+      title: this.Myform.value.titre,
       description: this.Myform.value.description,
-      dateD: this.Myform.value.dateD,
-      dateF: this.Myform.value.dateF,
-      username: this.Myform.value.username
+      start: this.towDigits(start.getDate())+"-"+this.towDigits(start.getMonth()+1)+"-"+start.getFullYear()+" "+this.towDigits(start.getHours())+":"+this.towDigits(start.getMinutes())+":"+this.towDigits(start.getSeconds()),
+      end: this.towDigits(end.getDate())+"-"+this.towDigits(end.getMonth()+1)+"-"+end.getFullYear()+" "+this.towDigits(end.getHours())+":"+this.towDigits(end.getMinutes())+":"+this.towDigits(end.getSeconds()),
     }
     if(this.currentDate){
       let date = new Date();
-      task.dateD = date.getFullYear()+"-"+this.towDigits(date.getMonth()+1)+"-"+this.towDigits(date.getDay())+"T"+this.towDigits(date.getHours())+":"+this.towDigits(date.getMinutes());
+      task.start = this.towDigits(date.getDate())+"-"+this.towDigits(date.getMonth()+1)+"-"+date.getFullYear()+" "+this.towDigits(date.getHours())+":"+this.towDigits(date.getMinutes())+":"+this.towDigits(date.getSeconds());
     }
-    console.log(task);
+
+    this.adminDataService.addTask(this.token,task).subscribe(response=>{
+      this.task = response
+    }).add(()=>{
+      this.adminDataService.getID(this.token,this.Myform.value.username).subscribe(response=>{
+        this.id = response;
+      }).add(()=>{
+        this.adminDataService.assignTaskToUser(this.token,this.task.id,this.id).subscribe()
+        this.success = true;
+        this.today.nativeElement.checked = false;
+        this.Myform.reset();
+      })
+    })
   }
 
 }

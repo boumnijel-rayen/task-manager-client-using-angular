@@ -197,6 +197,21 @@ select::-ms-expand {
   margin-top: 5px;
 }
 
+.success{
+  background-color: rgb(24, 173, 24);
+  color: white;
+  font-size: 16px;
+  padding: 2px;
+  width: 40%;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.success p{
+  position: relative;
+  top: 5px;
+}
+
 @media(max-width: 584px){
 
     .container{

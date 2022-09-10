@@ -20,18 +20,7 @@
                     <div class="select"> 
                         <select name="format" id="format" formControlName="username" required >
                            <option selected disabled>Choisissez l'utilisateur</option>
-                           <option value="usre1">usre1</option>
-                           <option value="usre2">usre2</option>
-                           <option value="usre3">usre3</option>
-                           <option value="usre4">usre4</option>
-                           <option value="usre5">usre5</option>
-                           <option value="usre6">usre6</option>
-                           <option value="usre7">usre7</option>
-                           <option value="usre8">usre8</option>
-                           <option value="usre9">usre9</option>
-                           <option value="usre10">usre10</option>
-                           <option value="usre11">usre11</option>
-                           <option value="usre12">usre12</option>
+                           <option [value]="user.username" *ngFor="let user of users">{{user.username}}</option>
                         </select>
                      </div>
                      <div class="error" *ngIf="Myform.get('username').touched && Myform.get('username').value == initialValueUsername">l'utilisateur obligatoire</div>
@@ -42,7 +31,7 @@
                         <input type="datetime-local" [hidden]="currentDate" formControlName="dateD" name="dateD">
                         <div class="check">
                             <label for="debut" >Date actuelle</label>
-                            <input type="checkbox" (change)="onChange($event)"  name="debut" id="debut">
+                            <input type="checkbox" #today (change)="onChange($event)"  name="debut" id="debut">
                             <div class="error" *ngIf="Myform.get('dateD').touched && (!currentDate && Myform.get('dateD').value == null)">date debut obligatoire</div>
                         </div>   
                     </div>
@@ -53,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            <div class="success" *ngIf="success"><p>ajouté avec success</p></div>
             <div class="button">
                 <input type="submit" [disabled]="Myform.invalid" value="Enregistrer">
             </div>
