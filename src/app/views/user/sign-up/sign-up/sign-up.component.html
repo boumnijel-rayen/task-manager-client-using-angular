@@ -21,6 +21,7 @@
                                 <label for="username">Username </label>
                             </div>
                             <div class="error" *ngIf="myForm.get('username').touched && myForm.get('username').hasError('required')">username required</div>
+                            <div class="error" *ngIf="usernameExiste">username existe</div>
                         </div> 
                     </div>
                     <div class="line">
@@ -53,7 +54,7 @@
                     <div class="line">
                         <div>
                             <label class="custom-file-upload" #upload>
-                                <input type="file" formControlName="image" (input)="fill()" required id="file" name="file">
+                                <input type="file" #file formControlName="image" (input)="fill()" required id="file" name="file">
                                 <i class="bi bi-cloud-arrow-up-fill"></i> Photo de profile
                             </label>
                             <div class="error" *ngIf="myForm.get('image').touched && myForm.get('image').hasError('required')">photo required</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserDataServiceService } from 'src/app/views/services/user-data-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,8 +13,11 @@ export class SignUpComponent implements OnInit {
   myForm: any;
 
   @ViewChild('upload') upload:any;
+  @ViewChild('file')  file:any;
 
-  constructor(private formBuilder : FormBuilder, private router:Router) {
+  usernameExiste:boolean = false;
+
+  constructor(private formBuilder : FormBuilder, private router:Router,private userDataService:UserDataServiceService) {
     this.myForm = formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
@@ -95,7 +99,28 @@ export class SignUpComponent implements OnInit {
   }
 
   add(){
-    console.log(this.myForm.value);
+    this.userDataService.isExiste(this.myForm.value.username).subscribe(response=>{
+      if(response){
+        this.usernameExiste = true;
+      }else{
+        this.usernameExiste = false;
+      }
+    }).add(()=>{
+      if(!this.usernameExiste){
+        const formData = new FormData();
+        formData.append('image', this.file.nativeElement.files[0], this.file.nativeElement.files[0].name);
+        formData.append('name', this.myForm.value.name);
+        formData.append('email', this.myForm.value.email);
+        formData.append('username', this.myForm.value.username);
+        formData.append('password', this.myForm.value.password);
+
+        this.userDataService.addUser(formData).subscribe(response=>{
+          this.router.navigate(['/login']);
+        })
+        
+      }
+    })
+    
   }
 
 }
