@@ -14,6 +14,7 @@
 .logo img{
     width: 70px;
     height: 70px;
+    cursor: pointer;
 }
 
 .logo h3{

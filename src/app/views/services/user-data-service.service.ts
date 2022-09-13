@@ -1,7 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SignUpModule } from '../user/sign-up/sign-up.module';
-import { SignUpComponent } from '../user/sign-up/sign-up/sign-up.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +32,15 @@ export class UserDataServiceService {
       reportProgress:true,
       observe:'events'
     })
+  }
+
+  getUser(token:any,id:any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token});
+    return this.http.get('http://localhost:8080/user/'+id,{headers:headers});
+  }
+
+  getImageUser(token:any,id:any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token});
+    return this.http.get('http://localhost:8080/user/image/'+id,{headers:headers,responseType:'blob'});
   }
 }

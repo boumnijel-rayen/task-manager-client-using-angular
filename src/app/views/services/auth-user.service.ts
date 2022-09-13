@@ -19,28 +19,33 @@ export class AuthUserService {
   }
 
   saveData(token:string){
+    localStorage.setItem('tokenU',token)
+    let username = this.helper.decodeToken(token).sub
     let roles = this.helper.decodeToken(token).roles
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    let data = this.http.get('http://localhost:8080/user/username/'+username,{headers:headers})
+    data.subscribe(response => {
+      this.dataRes = response;
+      localStorage.setItem('idU',this.dataRes)
+      if (roles.includes('ROLE_USER')){
+        this.route.navigate(['/user'])
+      }else{
+        localStorage.removeItem('idU')
+      }
+    })
     if (roles.includes('ROLE_USER')){
-      localStorage.setItem('token',token)
-      let username = this.helper.decodeToken(token).sub
-      const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
-      let data = this.http.get('http://localhost:8080/user/username/'+username,{headers:headers})
-      data.subscribe(response => {
-        this.dataRes = response;
-        localStorage.setItem('id',this.dataRes)
-      })
-      this.route.navigate(['/user'])
       return false
     }else{
+      localStorage.removeItem('tokenU')
       return true
     }
   }
 
   connected(){
-    if (localStorage.getItem('token') == null){
+    if (localStorage.getItem('tokenU') == null){
       return false
     }
-    let token:any = localStorage.getItem('token')
+    let token:any = localStorage.getItem('tokenU')
     let roles = this.helper.decodeToken(token).roles
     if (this.helper.isTokenExpired(token)){
       return false

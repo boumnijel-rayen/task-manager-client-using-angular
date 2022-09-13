@@ -94,4 +94,8 @@ export class AdminLayoutComponent implements OnInit {
     this.router.navigate(['/loginAdmin']);
   }
 
+  home(){
+    this.router.navigate(['']);
+  }
+
 }

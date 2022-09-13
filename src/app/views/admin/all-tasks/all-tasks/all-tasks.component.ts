@@ -27,7 +27,7 @@ export class AllTasksComponent implements OnInit {
       }else{
         const [dateComponents, timeComponents] = task.end.split(' ');
 
-        const [month, day, year] = dateComponents.split('-');
+        const [day, month, year] = dateComponents.split('-');
         const [hours, minutes, seconds] = timeComponents.split(':');
 
         const dateEnd = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);

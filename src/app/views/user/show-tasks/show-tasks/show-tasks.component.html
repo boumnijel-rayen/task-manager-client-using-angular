@@ -1,16 +1,16 @@
 <div class="allPage">
 <header>
-    <img class="logo" src="assets/img/logo.png" alt="">
+    <img class="logo" src="assets/img/logo.png" (click)="home()" alt="">
     <nav>
         <div class="profile">
-            <img src="assets/img/photo.jpg" alt="">
+            <img [src]="image" alt="">
             <div class="details">
                 <p class="role">User</p>
-                <p class="username">Rayen-Boumnijel</p>
+                <p class="username">{{username}}</p>
             </div>
         </div>
         <ul>
-            <li><a href="">Log out</a></li>       
+            <li><a (click)="logout()">Log out</a></li>       
         </ul>
     </nav>
 </header>
@@ -43,16 +43,23 @@
       </div>
       <div class="coll-2 coll col-9">
         <div class="container c2">
-            <div class="row">
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
+            
+            <div class="row" *ngFor="let item of fakeArray(allTasks.length);let index = index;">
+              <div class="col" *ngFor="let task of allTasks[index]">
+                <h4>{{task.title}}</h4>
+                <p class="des">{{task.description}}</p>
+                <div class="status" *ngIf="task.state == 'In Progress'">
+                  <div class="orange"></div><p>En cours</p><p class="reste">Reste {{task.reste}} heures</p>
                 </div>
-                <button>Done</button>
+                <div class="status" *ngIf="task.state == 'Late'">
+                  <div class="red"></div><p>En retard</p>
+                </div>
+                <div class="status" *ngIf="task.state == 'Done'">
+                  <div class="green"></div><p>Fini</p>
+                </div>
+                <button (click)="assginDone(task.id)" *ngIf="task.state == 'In Progress'">Done</button>
               </div>
-              <div class="col">
+              <!-- <div class="col">
                 <h4>Titre</h4>
                 <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
                 <div class="status">
@@ -65,58 +72,9 @@
                 <div class="status">
                   <div class="green"></div><p>Fini</p>
                 </div>
-              </div>
+              </div> -->
             </div>
 
-            <div class="row">
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
-                </div>
-                <button>Done</button>
-              </div>
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="red"></div><p>En retard</p>
-                </div>
-              </div>
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="green"></div><p>Fini</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="orange"></div><p>En cours</p><p class="reste">Reste 42 heures</p>
-                </div>
-                <button>Done</button>
-              </div>
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="red"></div><p>En retard</p>
-                </div>
-              </div>
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="green"></div><p>Fini</p>
-                </div>
-              </div>
-            </div>
           </div>
       </div>
     </div>
