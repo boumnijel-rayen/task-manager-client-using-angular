@@ -45,6 +45,7 @@
         <div class="container c2">
             
             <div class="row" *ngFor="let item of fakeArray(allTasks.length);let index = index;">
+              
               <div class="col" *ngFor="let task of allTasks[index]">
                 <h4>{{task.title}}</h4>
                 <p class="des">{{task.description}}</p>
@@ -59,20 +60,7 @@
                 </div>
                 <button (click)="assginDone(task.id)" *ngIf="task.state == 'In Progress'">Done</button>
               </div>
-              <!-- <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="red"></div><p>En retard</p>
-                </div>
-              </div>
-              <div class="col">
-                <h4>Titre</h4>
-                <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iure optio excepturi nemo, ipsum facere vel esse earum dolore minima.</p>
-                <div class="status">
-                  <div class="green"></div><p>Fini</p>
-                </div>
-              </div> -->
+
             </div>
 
           </div>

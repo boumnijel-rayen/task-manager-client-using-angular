@@ -43,4 +43,9 @@ export class UserDataServiceService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token});
     return this.http.get('http://localhost:8080/user/image/'+id,{headers:headers,responseType:'blob'});
   }
+
+  assginDone(token:any,id:any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token});
+    return this.http.put('http://localhost:8080/task/'+id,null,{headers:headers});
+  }
 }

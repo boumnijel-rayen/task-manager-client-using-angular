@@ -173,7 +173,9 @@ export class ShowTasksComponent implements OnInit {
   }
 
   assginDone(id:any){
-
+    this.userDataService.assginDone(this.token,id).subscribe().add(()=>{
+      this.ngOnInit()
+    })
   }
 
   fakeArray(length: number): any {
